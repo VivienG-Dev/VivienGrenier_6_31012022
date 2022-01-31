@@ -38,7 +38,7 @@ Use `Ctrl+C` in the terminal to stop the local server.
 1. Ouvrez un terminal (Linux/Mac) ou une invite de commande/PowerShell
 (Windows)
 2. Exécutez npm install à partir du répertoire du projet
-3. Télécharger le zip contenant le fichier ".env" et placer le à la racide du dossier "back" afin d'avoir accès à la BDD
+3. Télécharger le zip contenant le fichier ".env" et placer le à la racine du dossier "back" afin d'avoir accès à la BDD
 4. Exécutez npm start
 5. Exécutez le back-end sur http://localhost:3000 seulement
 
