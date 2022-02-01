@@ -5,6 +5,9 @@ const jwt = require("jsonwebtoken");
 // On récupère le modèle User
 const User = require("../models/User");
 
+// Pour permettre de masquer le secret token
+require("dotenv/config");
+
 // Pour sauvegarder un nouvel utilisateur avec un email et un mot de passe (en passant par bcrypt pour le hash)
 exports.signup = (req, res) => {
   // On fait appel à la méthode hash de bcrypt, on lui passe le mot de passe de l'utilisateur en provenance du formulaire et on le "sale" 10 fois
@@ -44,7 +47,7 @@ exports.login = (req, res) => {
           res.status(200).json({
             userId: user._id,
             // On encode un nouveau token (qui contient l'id utilisateur en tant que payload) avec la fonction sign()
-            token: jwt.sign({ userId: user._id }, "RANDOM_TOKEN_SECRET", {
+            token: jwt.sign({ userId: user._id }, process.env.TOKEN_SECRET, {
               // L'utilisateur devra se reconnecter au bout de 24h
               expiresIn: "24h"
             }),
